@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-//author 
-// ferandomercado529@gmail.com
 declare var window: any
 @Component({
   selector: 'app-root',
