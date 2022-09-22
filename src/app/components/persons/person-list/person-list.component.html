@@ -1,1 +1,29 @@
-<p>person-list works!</p>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Edad</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of persons;let i =index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.lastName}}</td>
+            <td>{{person.ci}}</td>
+            <td>{{person.gender}}</td>
+            <td>{{person.age}}</td>
+            <td>
+                <button class="btn btn-info">+</button>
+                <button class="btn btn-danger">-</button>
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>
