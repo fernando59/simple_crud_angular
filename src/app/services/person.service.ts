@@ -16,7 +16,7 @@ export class PersonService {
     gender: 'M',
   }
   personSelect: Person = this.initialValue
-  persons: Person[] = [
+  _persons: Person[] = [
     {
       name: 'fernando',
       lastName: 'mercado',
@@ -26,22 +26,26 @@ export class PersonService {
       id: 1
     }
   ]
+  get persons():Person[]{
+    return [...this._persons]
+  }
 
   addPerson(person: Person) {
     person.id = this.persons.length +1
-    this.persons.push(person)
+    this._persons.push(person)
   }
   updatePerson(person: Person) {
+    this._persons.forEach(item=>{
+      if(item.id ===person.id ){
+        item.name = person.name
+      }
+    })
+    console.log(this._persons)
 
   }
   deletePerson() {
-    console.log(this.personSelect)
-    // this.persons.pop()
     const id = this.personSelect.id
-    // console.log(this.persons.filter(person => person.id !== id))
-    this.persons = this.persons.filter(person => person.id !=id)
-    console.log(this.persons)
-    // this.persons = this.persons.filter(person => person.id !== id)
+    this._persons = this._persons.filter(person => person.id !=id)
     this.personSelect = this.initialValue
   }
 

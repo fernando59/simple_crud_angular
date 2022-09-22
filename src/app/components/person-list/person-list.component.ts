@@ -9,20 +9,29 @@ import { PersonService } from 'src/app/services/person.service';
 export class PersonListComponent implements OnInit {
   @Input() formModal:any
   @Input() deleteModal: any
+  isEdit:boolean= false
   
   constructor(private readonly personService:PersonService) { }
-  persons: Person[] = this.personService.persons;
+  get persons(){
+    return this.personService.persons
+  }
   ngOnInit(): void {
   }
+  idSelect= 0
 
   openModalDelete(person:Person){
-    console.log(person)
     this.personService.personSelect = person
     this.deleteModal.show()
   }
 
+  closeEdit(person:Person){
+    this.isEdit =false
+    this.personService.updatePerson(person)
+  }
   editPerson(person:Person){
-    this.personService.personSelect = person
-    this.formModal.show()
+    this.idSelect = person.id
+    this.isEdit =true
+    
+    // this.formModal.show()
   }
 }
