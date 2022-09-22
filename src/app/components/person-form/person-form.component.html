@@ -19,12 +19,12 @@
             <span *ngIf="isValidField('lastName')" class="text-danger">El campo apellido es requerido</span>
           </div>
           <div class="mb-3">
-            <label for="ciForm" class="form-label">Cedula</label>
+            <label for="ciForm" class="form-label">Cédula</label>
             <input formControlName="ci" type="text" class="form-control" id="ciForm">
-            <span *ngIf="isValidField('ci')" class="text-danger">El campo cedula es requerido</span>
+            <span *ngIf="isValidField('ci')" class="text-danger">El campo cédula es requerido</span>
           </div>
           <div class="mb-3">
-            <label for="generoForm" class="form-label">Genero</label>
+            <label for="generoForm" class="form-label">Género</label>
             <div class="form-check">
               <input class="form-check-input" value="M" type="radio" formControlName="gender" id="genderMale">
               <label for="genderMale">Masculino</label>
@@ -38,7 +38,7 @@
           <div class="mb-3">
             <label for="ageForm" class="form-label">Edad</label>
             <input type="number" formControlName="age" class="form-control" id="ageForm">
-            <span *ngIf="isValidField('age')" class="text-danger">El campo edad es requerido</span>
+            <span *ngIf="isValidField('age')" class="text-danger">{{dg_age}}</span>
           </div>
 
           <div class="d-flex aling-items-center  justify-content-end gap-4">

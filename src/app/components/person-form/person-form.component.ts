@@ -42,7 +42,7 @@ export class PersonFormComponent implements OnInit {
       lastName: [this.person.lastName, Validators.required],
       ci: [this.person.ci, Validators.required],
       gender: [this.person.gender, Validators.required],
-      age: [this.person.age, Validators.required],
+      age: [this.person.age, [Validators.required,Validators.min(1),Validators.max(100)]],
     })
 
   }
@@ -59,6 +59,20 @@ export class PersonFormComponent implements OnInit {
   //Valid field
   isValidField(field: string) {
     return this.formPerson.controls[field].errors && this.formPerson.controls[field].touched
+  }
+  //CUSTOM VALIDORS
+  get dg_age(): string {
+    const errors = this.formPerson.get('age')?.errors
+    if (errors?.required) {
+      return 'El campo edad es requerido'
+    } else if (errors?.min) {
+      return 'La edad mínima es de 1 año '
+    }
+    else if (errors?.max) {
+      return 'La edad máxima es de 100 años '
+    }
+    return ''
+
   }
   closeModal() {
     this.formModal.hide()
