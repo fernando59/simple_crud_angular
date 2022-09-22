@@ -21,4 +21,8 @@ export class PersonListComponent implements OnInit {
     this.deleteModal.show()
   }
 
+  editPerson(person:Person){
+    this.personService.personSelect = person
+    this.formModal.show()
+  }
 }

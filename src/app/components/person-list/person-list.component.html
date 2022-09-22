@@ -20,7 +20,7 @@
             <td>{{person.age}}</td>
             <td class="d-flex gap-2">
                 <!-- EDIT -->
-                <button class="btn btn-info "><i class="bi bi-pencil-square"></i></button>
+                <button (click)="editPerson(person)" class="btn btn-info "><i class="bi bi-pencil-square"></i></button>
                 <!-- DELETE -->
                 <button (click)="openModalDelete(person)" class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
 

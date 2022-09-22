@@ -26,12 +26,13 @@ export class PersonFormComponent implements OnInit {
   }
 
   private buildForm() {
+    let person =this.personService.personSelect
     this.formPerson = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      ci: ['', Validators.required],
-      gender: ['M', Validators.required],
-      age: ['', Validators.required],
+      name: [person.name, Validators.required],
+      lastName: [person.lastName, Validators.required],
+      ci: [person.ci, Validators.required],
+      gender: [person.gender, Validators.required],
+      age: [person.age, Validators.required],
     })
 
   }

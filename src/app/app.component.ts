@@ -12,10 +12,11 @@ export class AppComponent {
   deleteModal: any
   ngOnInit(): void {
 
+    //Modal Form
     this.formModal = new window.bootstrap.Modal(document.getElementById('myModal'), {
       backdrop: 'static'
     })
-
+    //Modal Delete
     this.deleteModal = new window.bootstrap.Modal(document.getElementById('modalDelete'), {
       backdrop: 'static'
     })
