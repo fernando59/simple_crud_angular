@@ -1,24 +1,23 @@
 <div class="container">
 
   <h1 class="text-center p-5">Agenda Personas</h1>
-  <button type="button" class="btn  btn-outline-primary mb-4" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">Agregar</button>
+  <!-- <button type="button" class="btn  btn-outline-primary mb-4" data-bs-toggle="modal" -->
+  <button type="button" class="btn  btn-outline-primary mb-4" (click)="openModal()">Agregar</button>
 
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Guardar Persona</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="myModal">Guardar Persona</h5>
         </div>
         <div class="modal-body">
-          <person-form></person-form>
+          <person-form [formModal]="formModal" ></person-form>
         </div>
       </div>
     </div>
   </div>
-  <person-list></person-list>
+  <person-list [formModal]="formModal" ></person-list>
   <router-outlet></router-outlet>
 </div>

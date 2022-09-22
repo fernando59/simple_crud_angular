@@ -8,8 +8,8 @@
   </div>
   <div class="mb-3">
     <label for="lastnameForm" class="form-label">Apellido</label>
-    <input formControlName="lastname" type="text" class="form-control" id="lastnameForm">
-    <span *ngIf="isValidField('lastname')" class="text-danger">El campo apellido es requerido</span>
+    <input formControlName="lastName" type="text" class="form-control" id="lastnameForm">
+    <span *ngIf="isValidField('lastName')" class="text-danger">El campo apellido es requerido</span>
   </div>
   <div class="mb-3">
     <label for="ciForm" class="form-label">Cedula</label>
@@ -34,6 +34,8 @@
     <span *ngIf="isValidField('age')" class="text-danger">El campo edad es requerido</span>
   </div>
 
+  <hr>
+  <button class="btn btn-danger" type="button" (click)="closeModal()">Cancelar</button>
   <button class="btn btn-success" type="submit">Guardar</button>
 
 </form>

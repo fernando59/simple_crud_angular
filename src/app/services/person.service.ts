@@ -6,16 +6,20 @@ import { Person } from '../models/person.model';
 })
 export class PersonService {
 
-  idPerson: number = 0
-  persons: Person[] = [
-    {
-      age: 20,
-      name: 'fernando',
-      ci: '8197383Sc',
-      gender: 'M',
-      id: 1,
-      lastName: 'Mercado'
-    }
-  ]
   constructor() { }
+  idPerson: number = 0
+  persons: Person[] = []
+
+  addPerson(person:Person){
+    this.persons.push(person)
+  }
+  updatePerson(person:Person){
+
+  }
+  deletePerson(id:number){
+    this.persons =this.persons.filter(person=>person.id !==id)
+  }
+
+ 
+
 }

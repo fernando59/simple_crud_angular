@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonService } from 'src/app/services/person.service';
 
+
+declare var window: any
 @Component({
   selector: 'person-form',
   templateUrl: './person-form.component.html',
@@ -10,19 +12,23 @@ import { PersonService } from 'src/app/services/person.service';
 export class PersonFormComponent implements OnInit {
 
   formPerson!: FormGroup;
+  @Input() formModal: any
   constructor(
     private readonly fb: FormBuilder,
     private readonly personService: PersonService
   ) {
   }
+  ngOnInit(): void {
+    this.buildForm()
+  }
 
   private buildForm() {
     this.formPerson = this.fb.group({
-      name: ['',  Validators.required],
-      lastname: ['',  Validators.required],
-      ci: ['',  Validators.required],
-      gender: ['M',  Validators.required],
-      age: ['',  Validators.required],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      ci: ['', Validators.required],
+      gender: ['M', Validators.required],
+      age: ['', Validators.required],
     })
 
   }
@@ -31,13 +37,17 @@ export class PersonFormComponent implements OnInit {
       this.formPerson.markAllAsTouched()
       return
     }
-    console.log(this.formPerson.value)
-    this.formPerson.value
+    this.personService.addPerson(this.formPerson.value)
+    this.closeModal()
   }
+
+  //Valid field
   isValidField(field: string) {
     return this.formPerson.controls[field].errors && this.formPerson.controls[field].touched
   }
-  ngOnInit(): void {
-    this.buildForm()
+  closeModal() {
+    this.formModal.hide()
+    this.formPerson.reset()
   }
+
 }
