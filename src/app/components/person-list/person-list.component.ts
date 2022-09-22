@@ -26,6 +26,7 @@ export class PersonListComponent implements OnInit {
 
   closeEdit(person:Person){
     this.isEdit =false
+    console.log(person)
     this.personService.updatePerson(person)
   }
   editPerson(person:Person){

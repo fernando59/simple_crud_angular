@@ -40,7 +40,6 @@ export class PersonService {
         item.name = person.name
       }
     })
-    console.log(this._persons)
 
   }
   deletePerson() {

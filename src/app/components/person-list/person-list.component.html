@@ -14,7 +14,7 @@
         <tr *ngFor="let person of persons;let i =index">
             <th scope="row">{{i+1}}</th>
             <td>
-                <div *ngIf="isEdit && person.id ==idSelect">
+                <div *ngIf="isEdit">
                     <input type="text" [(ngModel)]="person.name" class="formControl">
                 </div>
                 <div *ngIf="!isEdit">
@@ -27,35 +27,52 @@
                     <input type="text" [(ngModel)]="person.lastName" class="formControl">
                 </div>
                 <div *ngIf="!isEdit">
-                {{person.lastName}}
-            </div>
+                    {{person.lastName}}
+                </div>
             </td>
             <td>
                 <div *ngIf="isEdit">
                     <input type="text" [(ngModel)]="person.ci" class="formControl">
                 </div>
                 <div *ngIf="!isEdit">
-                {{person.ci}}
-            </div>
+                    {{person.ci}}
+                </div>
             </td>
             <td>
+                <div *ngIf="isEdit">
+                    <label >
 
-                {{person.gender}}
+                        Masculino
+                        <input type="radio" value="M"   name="gender"[(ngModel)]="person.gender" class="formControl">
+                    </label>
+                    <label >
+
+                        Femenino
+                        <input type="radio" value="F"   name="gender"[(ngModel)]="person.gender" class="formControl">
+                    </label>
+                   
+                </div>
+                <div *ngIf="!isEdit">
+                    {{person.gender}}
+                </div>
             </td>
             <td>
                 <div *ngIf="isEdit">
                     <input type="text" [(ngModel)]="person.age" class="formControl">
                 </div>
                 <div *ngIf="!isEdit">
-                {{person.age}}
-            </div>
+                    {{person.age}}
+                </div>
             </td>
             <td class="d-flex gap-2">
                 <!-- EDIT -->
-                <button *ngIf="!isEdit" (click)="editPerson(person)" class="btn btn-info "><i class="bi bi-pencil-square"></i></button>
-                <button *ngIf="isEdit" (click)="closeEdit(person)" class="btn btn-primary"><i class="bi bi-check-lg"></i></button>
+                <button *ngIf="!isEdit" (click)="editPerson(person)" class="btn btn-info "><i
+                        class="bi bi-pencil-square"></i></button>
+                <button *ngIf="isEdit" (click)="closeEdit(person)" class="btn btn-primary"><i
+                        class="bi bi-check-lg"></i></button>
                 <!-- DELETE -->
-                <button (click)="openModalDelete(person)" class="btn btn-danger "><i class="bi bi-trash-fill"></i></button>
+                <button (click)="openModalDelete(person)" class="btn btn-danger "><i
+                        class="bi bi-trash-fill"></i></button>
 
             </td>
         </tr>
