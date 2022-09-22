@@ -22,11 +22,11 @@ export class PersonListComponent implements OnInit {
   openModalDelete(person:Person){
     this.personService.personSelect = person
     this.deleteModal.show()
+    this.isEdit = false
   }
 
   closeEdit(person:Person){
     this.isEdit =false
-    console.log(person)
     this.personService.updatePerson(person)
   }
   editPerson(person:Person){
