@@ -8,9 +8,17 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class PersonListComponent implements OnInit {
   @Input() formModal:any
+  @Input() deleteModal: any
+  
   constructor(private readonly personService:PersonService) { }
   persons: Person[] = this.personService.persons;
   ngOnInit(): void {
+  }
+
+  openModalDelete(person:Person){
+    console.log(person)
+    this.personService.personSelect = person
+    this.deleteModal.show()
   }
 
 }

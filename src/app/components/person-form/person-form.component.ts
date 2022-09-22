@@ -13,11 +13,14 @@ export class PersonFormComponent implements OnInit {
 
   formPerson!: FormGroup;
   @Input() formModal: any
+
+
   constructor(
     private readonly fb: FormBuilder,
     private readonly personService: PersonService
-  ) {
-  }
+  ) { }
+
+  
   ngOnInit(): void {
     this.buildForm()
   }
@@ -37,6 +40,7 @@ export class PersonFormComponent implements OnInit {
       this.formPerson.markAllAsTouched()
       return
     }
+
     this.personService.addPerson(this.formPerson.value)
     this.closeModal()
   }
@@ -48,6 +52,7 @@ export class PersonFormComponent implements OnInit {
   closeModal() {
     this.formModal.hide()
     this.formPerson.reset()
+    this.formPerson.controls['gender'].setValue('M')
   }
 
 }

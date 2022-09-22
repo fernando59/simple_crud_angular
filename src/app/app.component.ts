@@ -9,10 +9,15 @@ declare var window: any
 export class AppComponent {
 
   formModal: any
+  deleteModal: any
   ngOnInit(): void {
 
-    this.formModal = new window.bootstrap.Modal(document.getElementById('myModal'),{
-      backdrop:'static'
+    this.formModal = new window.bootstrap.Modal(document.getElementById('myModal'), {
+      backdrop: 'static'
+    })
+
+    this.deleteModal = new window.bootstrap.Modal(document.getElementById('modalDelete'), {
+      backdrop: 'static'
     })
   }
 
