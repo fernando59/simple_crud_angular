@@ -14,61 +14,61 @@
         <tr *ngFor="let person of persons;let i =index">
             <th scope="row">{{i+1}}</th>
             <td>
-                <div *ngIf="isEdit">
+                <div *ngIf="idSelect ==person.id">
                     <input type="text" [(ngModel)]="person.name" class="formControl">
                 </div>
-                <div *ngIf="!isEdit">
-
+                <div *ngIf="idSelect !=person.id">
+                        
                     {{person.name}}
                 </div>
             </td>
             <td>
-                <div *ngIf="isEdit">
+                <div *ngIf="idSelect ==person.id">
                     <input type="text" [(ngModel)]="person.lastName" class="formControl">
                 </div>
-                <div *ngIf="!isEdit">
+                <div *ngIf="idSelect !=person.id">
                     {{person.lastName}}
                 </div>
             </td>
             <td>
-                <div *ngIf="isEdit">
+                <div *ngIf="idSelect ==person.id">
                     <input type="text" [(ngModel)]="person.ci" class="formControl">
                 </div>
-                <div *ngIf="!isEdit">
+                <div *ngIf="idSelect !=person.id">
                     {{person.ci}}
                 </div>
             </td>
             <td>
-                <div *ngIf="isEdit">
-                    <label >
+                <div *ngIf="idSelect ==person.id">
+                    <label class="form-check" >
 
                         Masculino
                         <input type="radio" value="M"   name="gender" [(ngModel)]="person.gender" class="formControl">
                     </label>
-                    <label >
+                    <label class="form-check">
 
                         Femenino
                         <input type="radio" value="F"   name="gender" [(ngModel)]="person.gender" class="formControl">
                     </label>
                    
                 </div>
-                <div *ngIf="!isEdit">
+                <div *ngIf="idSelect !=person.id">
                     {{person.gender}}
                 </div>
             </td>
             <td>
-                <div *ngIf="isEdit">
+                <div *ngIf="idSelect ==person.id">
                     <input type="text" [(ngModel)]="person.age" class="formControl">
                 </div>
-                <div *ngIf="!isEdit">
+                <div *ngIf="idSelect !=person.id">
                     {{person.age}}
                 </div>
             </td>
             <td class="d-flex gap-2">
                 <!-- EDIT -->
-                <button *ngIf="!isEdit" (click)="editPerson(person)" class="btn btn-info "><i
+                <button *ngIf="idSelect !=person.id" (click)="editPerson(person)" class="btn btn-info "><i
                         class="bi bi-pencil-square"></i></button>
-                <button *ngIf="isEdit" (click)="closeEdit(person)" class="btn btn-primary"><i
+                <button *ngIf="idSelect ==person.id" (click)="closeEdit(person)" class="btn btn-primary"><i
                         class="bi bi-check-lg"></i></button>
                 <!-- DELETE -->
                 <button (click)="openModalDelete(person)" class="btn btn-danger "><i

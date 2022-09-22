@@ -22,16 +22,15 @@ export class PersonListComponent implements OnInit {
   openModalDelete(person:Person){
     this.personService.personSelect = person
     this.deleteModal.show()
-    this.isEdit = false
+    this.idSelect=0
   }
 
   closeEdit(person:Person){
-    this.isEdit =false
     this.personService.updatePerson(person)
+    this.idSelect=0
   }
   editPerson(person:Person){
     this.idSelect = person.id
-    this.isEdit =true
     
     // this.formModal.show()
   }

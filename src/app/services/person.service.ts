@@ -16,16 +16,7 @@ export class PersonService {
     gender: 'M',
   }
   personSelect: Person = this.initialValue
-  _persons: Person[] = [
-    {
-      name: 'fernando',
-      lastName: 'mercado',
-      age: 22,
-      ci: '81973853S',
-      gender: 'M',
-      id: 1
-    }
-  ]
+  _persons: Person[] = []
   get persons():Person[]{
     return [...this._persons]
   }
